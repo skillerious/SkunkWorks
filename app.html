@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="title">Loading app…</title>
+  <link rel="icon" href="./assets/icon.ico" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <!-- Neon Glass Topbar -->
+  <header id="topbar" class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="./">
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/165340990?v=4" alt="Robin Doak avatar" />
+        <div class="brand-text">
+          <strong>Skillerious</strong>
+          <span>App details</span>
+        </div>
+      </a>
+      <nav class="nav-group" aria-label="Primary">
+        <a class="nav-pill" href="./">All Apps</a>
+        <a id="repoLink" class="nav-pill neon" target="_blank" rel="noopener">Repo</a>
+        <a id="topReleases" class="nav-pill ghost" href="#releases">Releases</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article class="app-page">
+      <!-- HERO -->
+      <section id="hero" class="hero-app glass">
+        <img id="icon" class="app-icon" alt="App icon" />
+        <div class="hero-text">
+          <h1 class="display" id="name">Loading…</h1>
+          <p id="tagline" class="lead"></p>
+
+          <div class="meta">
+            <span id="lang" class="pill"></span>
+            <span id="stars" class="pill"></span>
+            <span id="updated" class="pill"></span>
+            <span id="version" class="pill"></span>
+          </div>
+
+          <!-- Primary CTAs -->
+          <div class="cta-row">
+            <a id="primaryDownload" class="btn neon" target="_blank" rel="noopener" hidden>Download</a>
+            <details id="assetMenu" class="asset-menu" hidden>
+              <summary class="btn ghost">All assets</summary>
+              <div id="assetList" class="asset-list"></div>
+            </details>
+            <a id="homepage" class="btn ghost" target="_blank" rel="noopener" hidden>Website</a>
+            <a id="issues" class="btn ghost" target="_blank" rel="noopener">Issues</a>
+          </div>
+
+          <div id="platforms" class="platforms"></div>
+
+          <!-- Quick stats -->
+          <div id="quick" class="quick">
+            <span class="pill" id="forksPill" hidden>Forks: 0</span>
+            <span class="pill" id="watchersPill" hidden>Watchers: 0</span>
+            <span class="pill" id="openIssuesPill" hidden>Open issues: 0</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TABS -->
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="overview">Overview</button>
+        <button class="tab-btn" data-tab="releases">Releases</button>
+        <button class="tab-btn" data-tab="gallery">Gallery</button>
+      </nav>
+
+      <!-- OVERVIEW / README -->
+      <section id="tab-overview" class="tab-panel">
+        <article id="readme" class="readme glass"><div class="skeleton"></div></article>
+      </section>
+
+      <!-- RELEASES -->
+      <section id="tab-releases" class="tab-panel hidden">
+        <article id="releases" class="releases glass">
+          <h2 class="h2">Latest releases</h2>
+          <div id="releaseList" class="rel-list"></div>
+        </article>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="tab-gallery" class="tab-panel hidden">
+        <article id="gallery" class="gallery glass hidden">
+          <h2 class="h2">Screenshots</h2>
+          <div id="shots" class="shots"></div>
+        </article>
+      </section>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-pro">
+    <div class="wrap footer-grid">
+      <section class="f-col">
+        <h3>Skillerious</h3>
+        <p class="muted">Dark, modern desktop apps built with care.</p>
+      </section>
+      <nav class="f-col" aria-label="Site">
+        <h4>Site</h4>
+        <ul class="f-links">
+          <li><a href="./">All apps</a></li>
+        </ul>
+      </nav>
+      <nav class="f-col" aria-label="Social">
+        <h4>Social</h4>
+        <ul class="f-links">
+          <li><a href="https://github.com/skillerious" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </nav>
+      <section class="f-col">
+        <h4>Status</h4>
+        <p class="muted">© <span id="year2"></span> Robin Doak</p>
+      </section>
+    </div>
+  </footer>
+
+  <script src="./assets/utils.js" defer></script>
+  <script src="./assets/detail.js" defer></script>
+</body>
+</html>

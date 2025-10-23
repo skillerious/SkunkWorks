@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skillerious — Apps & Projects</title>
+  <meta name="description" content="Modern, dark portfolio for Robin Doak (Skillerious). Live GitHub data, polished UI, and per-app pages with downloads." />
+  <link rel="icon" href="./assets/icon.ico" />
+  <link rel="preload" as="image" href="https://avatars.githubusercontent.com/u/165340990?v=4" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <meta property="og:title" content="Skillerious — Apps & Projects" />
+  <meta property="og:description" content="Explore my desktop apps, tools and open-source projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/social-card.png" />
+</head>
+<body>
+  <!-- Neon Glass Topbar -->
+  <header id="topbar" class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="./" aria-label="Skillerious home">
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/165340990?v=4" alt="Robin Doak avatar" />
+        <div class="brand-text">
+          <strong>Skillerious</strong>
+          <span>Apps • Tools • Open Source</span>
+        </div>
+      </a>
+      <nav class="nav-group" aria-label="Primary navigation">
+        <a class="nav-pill neon" href="#apps">Apps</a>
+        <a class="nav-pill" href="#about">About</a>
+        <a class="nav-pill ghost" href="https://github.com/skillerious" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO CARD -->
+    <section class="hero-card glass">
+      <h1 class="display">Hi, I'm <span class="accent">Robin Doak</span> — I build modern, dark, desktop apps.</h1>
+      <p class="lead">Browse my public projects. Open any card for screenshots, README (Markdown + safe HTML), and release downloads.</p>
+
+      <div id="stats" class="stats"></div>
+
+      <div class="toolbar hero-toolbar">
+        <div class="toolbar-row">
+          <input id="q" type="search" placeholder="Search apps… (name/description)" aria-label="Search apps" />
+          <select id="langFilter" aria-label="Filter by language">
+            <option value="">All languages</option>
+          </select>
+          <select id="catFilter" aria-label="Filter by category">
+            <option value="">All categories</option>
+          </select>
+        </div>
+        <div class="toolbar-row">
+          <label class="switch"><input type="checkbox" id="hasReleases" /><span>Has releases</span></label>
+          <label class="switch"><input type="checkbox" id="featuredOnly" /><span>Featured only</span></label>
+          <button id="refresh" class="btn">Refresh</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPS GRID -->
+    <section id="apps" class="grid" aria-live="polite" aria-busy="true"></section>
+
+    <!-- ABOUT (redesigned) -->
+    <section id="about" class="about glass">
+      <div class="about-grid">
+        <div>
+          <h2 class="h2">About</h2>
+          <p class="muted">
+            I design dark, polished tools in Python and JavaScript. Most apps are open-source and free to try.
+          </p>
+        </div>
+        <div class="feature-list">
+          <div class="feature">
+            <div>
+              <strong>Live GitHub data</strong>
+              <p class="muted" style="margin:4px 0 0">Repos, README (Markdown + safe HTML), releases, icons—cached with graceful fallbacks.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div>
+              <strong>App overrides</strong>
+              <p class="muted" style="margin:4px 0 0">Customize visuals/CTAs using <code>assets/apps.json</code> (optional).</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div>
+              <strong>Open development</strong>
+              <p class="muted" style="margin:4px 0 0">Issues and feature requests are always welcome.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-pro">
+    <div class="wrap footer-grid">
+      <section class="f-col">
+        <h3>Skillerious</h3>
+        <p class="muted">Dark, modern desktop apps built with care.</p>
+      </section>
+      <nav class="f-col" aria-label="Site">
+        <h4>Site</h4>
+        <ul class="f-links">
+          <li><a href="#apps">Apps</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="https://github.com/skillerious/skillerious.github.io" target="_blank" rel="noopener">Site repo</a></li>
+        </ul>
+      </nav>
+      <nav class="f-col" aria-label="Social">
+        <h4>Social</h4>
+        <ul class="f-links">
+          <li><a href="https://github.com/skillerious" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </nav>
+      <section class="f-col">
+        <h4>Status</h4>
+        <p class="muted">© <span id="year"></span> Robin Doak</p>
+      </section>
+    </div>
+  </footer>
+
+  <script>
+    window.APP_CFG = {
+      owner: "skillerious",
+      perPage: 100,
+      featured: ["TornTargetTracker", "Version-Tracker", "Markiva", "SwiftFormatter", "Starfield-IDDB"]
+    };
+  </script>
+  <script src="./assets/utils.js" defer></script>
+  <script src="./assets/app.js" defer></script>
+</body>
+</html>
