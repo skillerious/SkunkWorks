@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
-  <!-- Neon Glass Topbar -->
+  <!-- Topbar (mobile-ready) -->
   <header id="topbar" class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="./">
@@ -18,13 +18,26 @@
           <span>App details</span>
         </div>
       </a>
+
       <nav class="nav-group" aria-label="Primary">
         <a class="nav-pill" href="./">All Apps</a>
         <a id="repoLink" class="nav-pill neon" target="_blank" rel="noopener">Repo</a>
         <a id="topReleases" class="nav-pill ghost" href="#releases">Releases</a>
       </nav>
+
+      <button class="menu-btn" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="menu-icon" aria-hidden="true"></span><span class="sr-only">Menu</span>
+      </button>
     </div>
   </header>
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="mobileMenu" class="mobile-menu" aria-label="Mobile menu" hidden>
+    <nav>
+      <a class="nav-pill" href="./">All Apps</a>
+      <a id="repoLinkMobile" class="nav-pill neon" target="_blank" rel="noopener">Repo</a>
+      <a class="nav-pill ghost" href="#releases">Releases</a>
+    </nav>
+  </aside>
 
   <main class="wrap">
     <article class="app-page">
@@ -42,7 +55,6 @@
             <span id="version" class="pill"></span>
           </div>
 
-          <!-- Primary CTAs -->
           <div class="cta-row">
             <a id="primaryDownload" class="btn neon" target="_blank" rel="noopener" hidden>Download</a>
             <details id="assetMenu" class="asset-menu" hidden>
@@ -55,7 +67,6 @@
 
           <div id="platforms" class="platforms"></div>
 
-          <!-- Quick stats -->
           <div id="quick" class="quick">
             <span class="pill" id="forksPill" hidden>Forks: 0</span>
             <span class="pill" id="watchersPill" hidden>Watchers: 0</span>
@@ -64,19 +75,17 @@
         </div>
       </section>
 
-      <!-- TABS -->
+      <!-- TABS (sticky on mobile) -->
       <nav class="tabs">
         <button class="tab-btn active" data-tab="overview">Overview</button>
         <button class="tab-btn" data-tab="releases">Releases</button>
         <button class="tab-btn" data-tab="gallery">Gallery</button>
       </nav>
 
-      <!-- OVERVIEW / README -->
       <section id="tab-overview" class="tab-panel">
         <article id="readme" class="readme glass"><div class="skeleton"></div></article>
       </section>
 
-      <!-- RELEASES -->
       <section id="tab-releases" class="tab-panel hidden">
         <article id="releases" class="releases glass">
           <h2 class="h2">Latest releases</h2>
@@ -84,7 +93,6 @@
         </article>
       </section>
 
-      <!-- GALLERY -->
       <section id="tab-gallery" class="tab-panel hidden">
         <article id="gallery" class="gallery glass hidden">
           <h2 class="h2">Screenshots</h2>
@@ -94,7 +102,6 @@
     </article>
   </main>
 
-  <!-- Footer -->
   <footer class="footer-pro">
     <div class="wrap footer-grid">
       <section class="f-col">
@@ -120,6 +127,14 @@
     </div>
   </footer>
 
+  <script>
+    // Keep the mobile drawer "Repo" link in sync with the hero repo link
+    document.addEventListener('DOMContentLoaded', () => {
+      const src = document.getElementById('repoLink');
+      const dst = document.getElementById('repoLinkMobile');
+      if (src && dst) dst.href = src.href;
+    });
+  </script>
   <script src="./assets/utils.js" defer></script>
   <script src="./assets/detail.js" defer></script>
 </body>

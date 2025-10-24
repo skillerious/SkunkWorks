@@ -14,8 +14,8 @@
   <meta property="og:image" content="./assets/social-card.png" />
 </head>
 <body>
-  <!-- Neon Glass Topbar -->
-  <header id="topbar" class="topbar">
+  <!-- Topbar -->
+  <header id="topbar" class="topbar" role="banner">
     <div class="wrap topbar-inner">
       <a class="brand" href="./" aria-label="Skillerious home">
         <img class="avatar" src="https://avatars.githubusercontent.com/u/165340990?v=4" alt="Robin Doak avatar" />
@@ -24,13 +24,28 @@
           <span>Apps • Tools • Open Source</span>
         </div>
       </a>
+
+      <!-- Desktop nav -->
       <nav class="nav-group" aria-label="Primary navigation">
         <a class="nav-pill neon" href="#apps">Apps</a>
         <a class="nav-pill" href="#about">About</a>
         <a class="nav-pill ghost" href="https://github.com/skillerious" target="_blank" rel="noopener">GitHub</a>
       </nav>
+
+      <!-- Mobile menu button -->
+      <button class="menu-btn" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="menu-icon" aria-hidden="true"></span><span class="sr-only">Menu</span>
+      </button>
     </div>
   </header>
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="mobileMenu" class="mobile-menu" aria-label="Mobile menu" hidden>
+    <nav>
+      <a class="nav-pill neon" href="#apps">Apps</a>
+      <a class="nav-pill" href="#about">About</a>
+      <a class="nav-pill ghost" href="https://github.com/skillerious" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </aside>
 
   <main class="wrap">
     <!-- HERO CARD -->
@@ -61,34 +76,17 @@
     <!-- APPS GRID -->
     <section id="apps" class="grid" aria-live="polite" aria-busy="true"></section>
 
-    <!-- ABOUT (redesigned) -->
+    <!-- ABOUT -->
     <section id="about" class="about glass">
       <div class="about-grid">
         <div>
           <h2 class="h2">About</h2>
-          <p class="muted">
-            I design dark, polished tools in Python and JavaScript. Most apps are open-source and free to try.
-          </p>
+          <p class="muted">I design dark, polished tools in Python and JavaScript. Most apps are open-source and free to try.</p>
         </div>
         <div class="feature-list">
-          <div class="feature">
-            <div>
-              <strong>Live GitHub data</strong>
-              <p class="muted" style="margin:4px 0 0">Repos, README (Markdown + safe HTML), releases, icons—cached with graceful fallbacks.</p>
-            </div>
-          </div>
-          <div class="feature">
-            <div>
-              <strong>App overrides</strong>
-              <p class="muted" style="margin:4px 0 0">Customize visuals/CTAs using <code>assets/apps.json</code> (optional).</p>
-            </div>
-          </div>
-          <div class="feature">
-            <div>
-              <strong>Open development</strong>
-              <p class="muted" style="margin:4px 0 0">Issues and feature requests are always welcome.</p>
-            </div>
-          </div>
+          <div class="feature"><div><strong>Live GitHub data</strong><p class="muted" style="margin:4px 0 0">Repos, README (Markdown + safe HTML), releases, icons—cached with graceful fallbacks.</p></div></div>
+          <div class="feature"><div><strong>App overrides</strong><p class="muted" style="margin:4px 0 0">Customize visuals/CTAs using <code>assets/apps.json</code> (optional).</p></div></div>
+          <div class="feature"><div><strong>Open development</strong><p class="muted" style="margin:4px 0 0">Issues and feature requests are always welcome.</p></div></div>
         </div>
       </div>
     </section>
