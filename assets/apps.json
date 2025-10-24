@@ -1,0 +1,97 @@
+{
+  "user": {
+    "login": "skillerious",
+    "public_repos": 8,
+    "followers": 0
+  },
+  "repos": [
+    {
+      "name": "TornTargetTracker",
+      "description": "Track targets for chains, dailies, and activity — polished PyQt6 app.",
+      "html_url": "https://github.com/skillerious/TornTargetTracker",
+      "homepage": "",
+      "stargazers_count": 0,
+      "language": "Python",
+      "pushed_at": "2025-01-10T12:00:00Z",
+      "private": false,
+      "archived": false
+    },
+    {
+      "name": "Version-Tracker",
+      "description": "Version dashboard & editor tooling for all my apps.",
+      "html_url": "https://github.com/skillerious/Version-Tracker",
+      "homepage": "",
+      "stargazers_count": 0,
+      "language": "CSS",
+      "pushed_at": "2025-01-08T12:00:00Z",
+      "private": false,
+      "archived": false
+    },
+    {
+      "name": "Markiva",
+      "description": "A sleek markdown editor with live preview and export.",
+      "html_url": "https://github.com/skillerious/Markiva",
+      "homepage": "",
+      "stargazers_count": 0,
+      "language": "HTML",
+      "pushed_at": "2025-01-05T12:00:00Z",
+      "private": false,
+      "archived": false
+    },
+    {
+      "name": "SwiftFormatter",
+      "description": "Format and clean code or text with a clean, dark UI.",
+      "html_url": "https://github.com/skillerious/SwiftFormatter",
+      "homepage": "",
+      "stargazers_count": 0,
+      "language": "JavaScript",
+      "pushed_at": "2025-01-04T12:00:00Z",
+      "private": false,
+      "archived": false
+    },
+    {
+      "name": "Starfield-IDDB",
+      "description": "Lookup and store Starfield console IDs with a modern UI.",
+      "html_url": "https://github.com/skillerious/Starfield-IDDB",
+      "homepage": "",
+      "stargazers_count": 0,
+      "language": "Python",
+      "pushed_at": "2025-01-03T12:00:00Z",
+      "private": false,
+      "archived": false
+    },
+    {
+      "name": "Loopback-Recorder",
+      "description": "Record Windows system audio with a simple interface.",
+      "html_url": "https://github.com/skillerious/Loopback-Recorder",
+      "homepage": "",
+      "stargazers_count": 0,
+      "language": "Python",
+      "pushed_at": "2025-01-02T12:00:00Z",
+      "private": false,
+      "archived": false
+    },
+    {
+      "name": "Swift-Image-Uploader",
+      "description": "Upload and manage images via GitHub storage.",
+      "html_url": "https://github.com/skillerious/Swift-Image-Uploader",
+      "homepage": "",
+      "stargazers_count": 0,
+      "language": "JavaScript",
+      "pushed_at": "2025-01-01T12:00:00Z",
+      "private": false,
+      "archived": false
+    },
+    {
+      "name": "CleanName",
+      "description": "A file renamer with handy batch features.",
+      "html_url": "https://github.com/skillerious/CleanName",
+      "homepage": "",
+      "stargazers_count": 0,
+      "language": "Python",
+      "pushed_at": "2024-12-30T12:00:00Z",
+      "private": false,
+      "archived": false
+    }
+  ]
+}
