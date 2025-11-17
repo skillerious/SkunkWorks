@@ -1,133 +1,302 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Skillerious — Apps & Projects</title>
-  <meta name="description" content="Modern, dark portfolio for Robin Doak (Skillerious). Live GitHub data, polished UI, and per-app pages with downloads." />
-  <link rel="icon" href="./assets/icon.ico" />
-  <link rel="preload" as="image" href="https://avatars.githubusercontent.com/u/165340990?v=4" />
-  <link rel="stylesheet" href="./assets/styles.css" />
-  <meta property="og:title" content="Skillerious — Apps & Projects" />
-  <meta property="og:description" content="Explore my desktop apps, tools and open-source projects." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="./assets/social-card.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Skillerious - Showcasing Innovative Software Projects & Open Source Contributions">
+    <title>Skillerious | Software Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Topbar -->
-  <header id="topbar" class="topbar" role="banner">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="./" aria-label="Skillerious home">
-        <img class="avatar" src="https://avatars.githubusercontent.com/u/165340990?v=4" alt="Robin Doak avatar" />
-        <div class="brand-text">
-          <strong>Skillerious</strong>
-          <span>Apps • Tools • Open Source</span>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">Skillerious</span>
+                <span class="logo-bracket">/&gt;</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#software" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-      </a>
-
-      <!-- Desktop nav -->
-      <nav class="nav-group" aria-label="Primary navigation">
-        <a class="nav-pill neon" href="#apps">Apps</a>
-        <a class="nav-pill" href="#about">About</a>
-        <a class="nav-pill ghost" href="https://github.com/skillerious" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-
-      <!-- Mobile menu button -->
-      <button class="menu-btn" aria-expanded="false" aria-controls="mobileMenu">
-        <span class="menu-icon" aria-hidden="true"></span><span class="sr-only">Menu</span>
-      </button>
-    </div>
-  </header>
-  <div id="scrim" class="scrim" hidden></div>
-  <aside id="mobileMenu" class="mobile-menu" aria-label="Mobile menu" hidden>
-    <nav>
-      <a class="nav-pill neon" href="#apps">Apps</a>
-      <a class="nav-pill" href="#about">About</a>
-      <a class="nav-pill ghost" href="https://github.com/skillerious" target="_blank" rel="noopener">GitHub</a>
     </nav>
-  </aside>
 
-  <main class="wrap">
-    <!-- HERO CARD -->
-    <section class="hero-card glass">
-      <h1 class="display">Hi, I'm <span class="accent">Robin Doak</span> — I build modern, dark, desktop apps.</h1>
-      <p class="lead">Browse my public projects. Open any card for screenshots, README (Markdown + safe HTML), and release downloads.</p>
-
-      <div id="stats" class="stats"></div>
-
-      <div class="toolbar hero-toolbar">
-        <div class="toolbar-row">
-          <input id="q" type="search" placeholder="Search apps… (name/description)" aria-label="Search apps" />
-          <select id="langFilter" aria-label="Filter by language">
-            <option value="">All languages</option>
-          </select>
-          <select id="catFilter" aria-label="Filter by category">
-            <option value="">All categories</option>
-          </select>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="typing-text">Building the Future</span>
+                    <span class="cursor">|</span>
+                </h1>
+                <p class="hero-subtitle">Showcasing Innovative Software Projects & Open Source Work</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-count="100">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="50000">0</span>
+                        <span class="stat-label">Lines of Code</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="1000">0</span>
+                        <span class="stat-label">Commits</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#software" class="btn btn-primary">Explore Projects</a>
+                    <a href="https://github.com/skillerious" target="_blank" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="toolbar-row">
-          <label class="switch"><input type="checkbox" id="hasReleases" /><span>Has releases</span></label>
-          <label class="switch"><input type="checkbox" id="featuredOnly" /><span>Featured only</span></label>
-          <button id="refresh" class="btn">Refresh</button>
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll to explore</span>
+            <div class="scroll-arrow"></div>
         </div>
-      </div>
     </section>
 
-    <!-- APPS GRID -->
-    <section id="apps" class="grid" aria-live="polite" aria-busy="true"></section>
-
-    <!-- ABOUT -->
-    <section id="about" class="about glass">
-      <div class="about-grid">
-        <div>
-          <h2 class="h2">About</h2>
-          <p class="muted">I design dark, polished tools in Python and JavaScript. Most apps are open-source and free to try.</p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">Software developer passionate about open source and innovative projects.</p>
+                    <p>This showcase highlights my journey through various technologies and projects. From desktop applications to web platforms, each project represents a unique challenge and learning experience in software development.</p>
+                    <div class="skills">
+                        <div class="skill-category">
+                            <h3>Languages</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">C#</span>
+                                <span class="skill-tag">Java</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Technologies</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">.NET</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="feature-list">
-          <div class="feature"><div><strong>Live GitHub data</strong><p class="muted" style="margin:4px 0 0">Repos, README (Markdown + safe HTML), releases, icons—cached with graceful fallbacks.</p></div></div>
-          <div class="feature"><div><strong>App overrides</strong><p class="muted" style="margin:4px 0 0">Customize visuals/CTAs using <code>assets/apps.json</code> (optional).</p></div></div>
-          <div class="feature"><div><strong>Open development</strong><p class="muted" style="margin:4px 0 0">Issues and feature requests are always welcome.</p></div></div>
-        </div>
-      </div>
     </section>
-  </main>
 
-  <!-- FOOTER -->
-  <footer class="footer-pro">
-    <div class="wrap footer-grid">
-      <section class="f-col">
-        <h3>Skillerious</h3>
-        <p class="muted">Dark, modern desktop apps built with care.</p>
-      </section>
-      <nav class="f-col" aria-label="Site">
-        <h4>Site</h4>
-        <ul class="f-links">
-          <li><a href="#apps">Apps</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="https://github.com/skillerious/skillerious.github.io" target="_blank" rel="noopener">Site repo</a></li>
-        </ul>
-      </nav>
-      <nav class="f-col" aria-label="Social">
-        <h4>Social</h4>
-        <ul class="f-links">
-          <li><a href="https://github.com/skillerious" target="_blank" rel="noopener">GitHub</a></li>
-        </ul>
-      </nav>
-      <section class="f-col">
-        <h4>Status</h4>
-        <p class="muted">© <span id="year"></span> Robin Doak</p>
-      </section>
+    <!-- Software Section -->
+    <section id="software" class="software">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Explore my software projects and open source contributions</p>
+
+            <!-- GitHub Stats Overview -->
+            <div class="github-stats-container" id="githubStats">
+                <!-- Stats will be loaded dynamically -->
+            </div>
+
+            <!-- Project Grid - Will be populated dynamically from GitHub -->
+            <div class="software-grid" id="projectsGrid">
+                <!-- Projects will be loaded here -->
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading projects from GitHub...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon" id="modalIcon">
+                        <!-- Icon will be inserted here -->
+                    </div>
+                    <div class="modal-header-text">
+                        <h2 id="modalTitle">Project Title</h2>
+                        <div class="modal-meta">
+                            <span class="modal-status" id="modalStatus">Active</span>
+                            <span class="modal-divider">•</span>
+                            <span id="modalLanguage">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-description" id="modalDescription">
+                        Project description will appear here...
+                    </div>
+
+                    <div class="modal-stats">
+                        <div class="modal-stat">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <span id="modalStars">0</span>
+                            <span class="stat-label">Stars</span>
+                        </div>
+                        <div class="modal-stat">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path>
+                            </svg>
+                            <span id="modalForks">0</span>
+                            <span class="stat-label">Forks</span>
+                        </div>
+                        <div class="modal-stat">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <span id="modalIssues">0</span>
+                            <span class="stat-label">Issues</span>
+                        </div>
+                        <div class="modal-stat">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                            <span id="modalSize">0 KB</span>
+                            <span class="stat-label">Size</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Technologies</h3>
+                        <div class="modal-tech" id="modalTech">
+                            <!-- Tech tags will be inserted here -->
+                        </div>
+                    </div>
+
+                    <div class="modal-section" id="modalTopicsSection">
+                        <h3>Topics</h3>
+                        <div class="modal-topics" id="modalTopics">
+                            <!-- Topics will be inserted here -->
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Repository Information</h3>
+                        <div class="modal-info-grid">
+                            <div class="info-row">
+                                <span class="info-label">Created:</span>
+                                <span id="modalCreated">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Last Updated:</span>
+                                <span id="modalUpdated">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">License:</span>
+                                <span id="modalLicense">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Default Branch:</span>
+                                <span id="modalBranch">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-readme" id="modalReadme">
+                        <!-- README preview will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <a id="modalGithubLink" href="#" target="_blank" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                    <a id="modalHomepageLink" href="#" target="_blank" class="btn btn-secondary" style="display: none;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        Visit Website
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </footer>
 
-  <script>
-    window.APP_CFG = {
-      owner: "skillerious",
-      perPage: 100,
-      featured: ["TornTargetTracker", "Version-Tracker", "Markiva", "SwiftFormatter", "Starfield-IDDB"]
-    };
-  </script>
-  <script src="./assets/utils.js" defer></script>
-  <script src="./assets/app.js" defer></script>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Connect</h2>
+            <p class="section-subtitle">Find me on GitHub and explore more of my work</p>
+            <div class="contact-content">
+                <div class="contact-links">
+                    <a href="https://github.com/skillerious" class="contact-card" target="_blank">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <h3>GitHub</h3>
+                        <p>Explore my open source projects and contributions</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">Skillerious</span>
+                    <span class="logo-bracket">/&gt;</span>
+                </div>
+                <p class="footer-text">Showcasing software projects and exploring new technologies.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/skillerious" target="_blank">GitHub</a>
+                    <span class="separator">•</span>
+                    <a href="#software">Projects</a>
+                    <span class="separator">•</span>
+                    <a href="#about">About</a>
+                </div>
+                <p class="copyright">&copy; 2025 Skillerious. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

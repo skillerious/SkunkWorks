@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects - Skillerious</title>
+    <meta name="description" content="Explore all software projects and repositories by Skillerious. Browse, filter, and discover innovative solutions.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">Skillerious</span>
+                <span class="logo-bracket">/&gt;</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="software.html" class="nav-link active">Projects</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Software Page Hero -->
+    <section class="software-hero">
+        <div class="container">
+            <div class="software-hero-content">
+                <h1 class="software-title">
+                    All <span class="gradient-text">Projects</span>
+                </h1>
+                <p class="software-subtitle">
+                    Explore my complete collection of open-source projects, tools, and applications
+                </p>
+
+                <!-- Quick Stats -->
+                <div class="software-quick-stats" id="softwareQuickStats">
+                    <div class="quick-stat">
+                        <span class="quick-stat-value" id="totalProjects">0</span>
+                        <span class="quick-stat-label">Total Projects</span>
+                    </div>
+                    <div class="quick-stat">
+                        <span class="quick-stat-value" id="totalStars">0</span>
+                        <span class="quick-stat-label">Total Stars</span>
+                    </div>
+                    <div class="quick-stat">
+                        <span class="quick-stat-value" id="totalLanguages">0</span>
+                        <span class="quick-stat-label">Languages</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters and Sort Section -->
+    <section class="software-controls">
+        <div class="container">
+            <div class="controls-wrapper">
+                <!-- Search -->
+                <div class="search-container">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="search-input"
+                        placeholder="Search projects..."
+                    >
+                </div>
+
+                <!-- Filters -->
+                <div class="filter-group">
+                    <label class="filter-label">Language:</label>
+                    <select id="languageFilter" class="filter-select">
+                        <option value="all">All Languages</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Status:</label>
+                    <select id="statusFilter" class="filter-select">
+                        <option value="all">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="archived">Archived</option>
+                    </select>
+                </div>
+
+                <!-- Sort -->
+                <div class="filter-group">
+                    <label class="filter-label">Sort by:</label>
+                    <select id="sortSelect" class="filter-select">
+                        <option value="updated">Recently Updated</option>
+                        <option value="stars">Most Stars</option>
+                        <option value="forks">Most Forks</option>
+                        <option value="name">Name (A-Z)</option>
+                        <option value="created">Recently Created</option>
+                    </select>
+                </div>
+
+                <!-- View Toggle -->
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" title="Grid View">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </button>
+                    <button class="view-btn" data-view="list" title="List View">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6"></line>
+                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-info">
+                <p id="resultsCount">Loading projects...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="software-section">
+        <div class="container">
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be loaded here by JavaScript -->
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading projects from GitHub...</p>
+                </div>
+            </div>
+
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                    <line x1="11" y1="8" x2="11" y2="12"></line>
+                    <line x1="11" y1="16" x2="11.01" y2="16"></line>
+                </svg>
+                <h3>No projects found</h3>
+                <p>Try adjusting your filters or search terms</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <!-- Project Detail Modal (Same as index.html) -->
+    <div id="projectModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                    <div class="modal-icon" id="modalIcon">
+                        <!-- Icon will be inserted here -->
+                    </div>
+                    <div class="modal-title-section">
+                        <h2 id="modalTitle" class="modal-title">Project Name</h2>
+                        <p id="modalDescription" class="modal-description">Project description goes here</p>
+                    </div>
+                    <div class="modal-badge">
+                        <span id="modalStatus" class="status-badge">Active</span>
+                    </div>
+                </div>
+
+                <!-- Technologies -->
+                <div class="modal-tech" id="modalTech">
+                    <!-- Tech tags will be inserted here -->
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="modal-stats-grid">
+                    <div class="modal-stat">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <div class="modal-stat-content">
+                            <span class="modal-stat-value" id="modalStars">0</span>
+                            <span class="modal-stat-label">Stars</span>
+                        </div>
+                    </div>
+                    <div class="modal-stat">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path>
+                        </svg>
+                        <div class="modal-stat-content">
+                            <span class="modal-stat-value" id="modalForks">0</span>
+                            <span class="modal-stat-label">Forks</span>
+                        </div>
+                    </div>
+                    <div class="modal-stat">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <div class="modal-stat-content">
+                            <span class="modal-stat-value" id="modalIssues">0</span>
+                            <span class="modal-stat-label">Issues</span>
+                        </div>
+                    </div>
+                    <div class="modal-stat">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        </svg>
+                        <div class="modal-stat-content">
+                            <span class="modal-stat-value" id="modalSize">0 MB</span>
+                            <span class="modal-stat-label">Size</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Grid -->
+                <div class="modal-info-grid">
+                    <div class="modal-info-item">
+                        <span class="modal-info-label">Language</span>
+                        <span class="modal-info-value" id="modalLanguage">N/A</span>
+                    </div>
+                    <div class="modal-info-item">
+                        <span class="modal-info-label">License</span>
+                        <span class="modal-info-value" id="modalLicense">N/A</span>
+                    </div>
+                    <div class="modal-info-item">
+                        <span class="modal-info-label">Default Branch</span>
+                        <span class="modal-info-value" id="modalBranch">main</span>
+                    </div>
+                    <div class="modal-info-item">
+                        <span class="modal-info-label">Created</span>
+                        <span class="modal-info-value" id="modalCreated">N/A</span>
+                    </div>
+                    <div class="modal-info-item">
+                        <span class="modal-info-label">Last Updated</span>
+                        <span class="modal-info-value" id="modalUpdated">N/A</span>
+                    </div>
+                </div>
+
+                <!-- Topics -->
+                <div class="modal-topics-section" id="modalTopicsSection">
+                    <h3>Topics</h3>
+                    <div class="modal-topics" id="modalTopics">
+                        <!-- Topics will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="modal-links">
+                    <a href="#" target="_blank" id="modalGithubLink" class="modal-link modal-link-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                    <a href="#" target="_blank" id="modalHomepageLink" class="modal-link" style="display: none;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        Visit Website
+                    </a>
+                </div>
+
+                <!-- README -->
+                <div class="modal-readme" id="modalReadme">
+                    <!-- README content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Skillerious</h3>
+                    <p class="footer-text">Building innovative software solutions and sharing knowledge with the developer community.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/skillerious" target="_blank" class="social-link" aria-label="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="software.html">All Projects</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Projects</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/skillerious" target="_blank">View on GitHub</a></li>
+                        <li><a href="software.html">Browse All</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Skillerious. All rights reserved.</p>
+                <p>Built with passion using vanilla HTML, CSS, and JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Software page specific functionality - Enhanced Version
+        (function() {
+            'use strict';
+
+            let allRepositories = [];
+            let filteredRepositories = [];
+            let currentView = 'grid';
+            let debounceTimer = null;
+
+            // Wait for main script to load repositories
+            window.addEventListener('DOMContentLoaded', function() {
+                setTimeout(initializeSoftwarePage, 100);
+            });
+
+            async function initializeSoftwarePage() {
+                if (window.state && window.state.repositories && window.state.repositories.length > 0) {
+                    allRepositories = window.state.repositories;
+                    filteredRepositories = [...allRepositories];
+
+                    populateFilters();
+                    updateQuickStats();
+                    displayProjects();
+                    setupEventListeners();
+                    animateStatsOnLoad();
+                } else if (typeof window.fetchRepositories === 'function') {
+                    // Fetch fresh data if not available
+                    try {
+                        const repos = await window.fetchRepositories();
+                        if (repos && repos.length > 0) {
+                            allRepositories = repos;
+                            filteredRepositories = [...allRepositories];
+
+                            populateFilters();
+                            updateQuickStats();
+                            displayProjects();
+                            setupEventListeners();
+                            animateStatsOnLoad();
+                        } else {
+                            setTimeout(initializeSoftwarePage, 300);
+                        }
+                    } catch (error) {
+                        console.error('Error fetching repositories:', error);
+                        setTimeout(initializeSoftwarePage, 300);
+                    }
+                } else {
+                    setTimeout(initializeSoftwarePage, 300);
+                }
+            }
+
+            function populateFilters() {
+                const languages = [...new Set(allRepositories
+                    .map(repo => repo.language)
+                    .filter(Boolean))
+                ].sort();
+
+                const languageFilter = document.getElementById('languageFilter');
+                languageFilter.innerHTML = '<option value="all">All Languages</option>';
+
+                languages.forEach(lang => {
+                    const option = document.createElement('option');
+                    option.value = lang;
+                    option.textContent = lang;
+                    languageFilter.appendChild(option);
+                });
+            }
+
+            function updateQuickStats() {
+                const totalProjects = allRepositories.length;
+                const totalStars = allRepositories.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+                const totalLanguages = new Set(allRepositories.map(r => r.language).filter(Boolean)).size;
+
+                document.getElementById('totalProjects').textContent = totalProjects.toLocaleString();
+                document.getElementById('totalStars').textContent = totalStars.toLocaleString();
+                document.getElementById('totalLanguages').textContent = totalLanguages.toLocaleString();
+            }
+
+            function animateStatsOnLoad() {
+                const stats = document.querySelectorAll('.quick-stat');
+                stats.forEach((stat, index) => {
+                    setTimeout(() => {
+                        stat.style.opacity = '0';
+                        stat.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            stat.style.transition = 'all 0.5s ease';
+                            stat.style.opacity = '1';
+                            stat.style.transform = 'translateY(0)';
+                        }, 50);
+                    }, index * 100);
+                });
+            }
+
+            function filterAndSort() {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                    const languageFilter = document.getElementById('languageFilter').value;
+                    const statusFilter = document.getElementById('statusFilter').value;
+                    const sortBy = document.getElementById('sortSelect').value;
+
+                    filteredRepositories = allRepositories.filter(repo => {
+                        const matchesSearch = !searchTerm ||
+                            repo.name.toLowerCase().includes(searchTerm) ||
+                            (repo.description && repo.description.toLowerCase().includes(searchTerm)) ||
+                            (repo.topics && repo.topics.some(topic => topic.toLowerCase().includes(searchTerm)));
+
+                        const matchesLanguage = languageFilter === 'all' || repo.language === languageFilter;
+                        const matchesStatus = statusFilter === 'all' ||
+                            (statusFilter === 'active' && !repo.archived) ||
+                            (statusFilter === 'archived' && repo.archived);
+
+                        return matchesSearch && matchesLanguage && matchesStatus;
+                    });
+
+                    filteredRepositories.sort((a, b) => {
+                        switch (sortBy) {
+                            case 'stars':
+                                return (b.stargazers_count || 0) - (a.stargazers_count || 0);
+                            case 'forks':
+                                return (b.forks_count || 0) - (a.forks_count || 0);
+                            case 'name':
+                                return a.name.localeCompare(b.name);
+                            case 'created':
+                                return new Date(b.created_at) - new Date(a.created_at);
+                            case 'updated':
+                            default:
+                                return new Date(b.updated_at) - new Date(a.updated_at);
+                        }
+                    });
+
+                    displayProjects();
+                }, 300);
+            }
+
+            function displayProjects() {
+                const projectsGrid = document.getElementById('projectsGrid');
+                const noResults = document.getElementById('noResults');
+                const resultsCount = document.getElementById('resultsCount');
+
+                resultsCount.textContent = `Showing ${filteredRepositories.length} of ${allRepositories.length} project${allRepositories.length !== 1 ? 's' : ''}`;
+
+                if (filteredRepositories.length === 0) {
+                    projectsGrid.innerHTML = '';
+                    noResults.style.display = 'flex';
+                    return;
+                }
+
+                noResults.style.display = 'none';
+                projectsGrid.className = currentView === 'grid' ? 'projects-grid' : 'projects-list';
+
+                if (typeof window.renderProjects === 'function') {
+                    window.renderProjects(filteredRepositories, null);
+                }
+            }
+
+            function setupEventListeners() {
+                const searchInput = document.getElementById('searchInput');
+                const languageFilter = document.getElementById('languageFilter');
+                const statusFilter = document.getElementById('statusFilter');
+                const sortSelect = document.getElementById('sortSelect');
+
+                searchInput.addEventListener('input', filterAndSort);
+                languageFilter.addEventListener('change', filterAndSort);
+                statusFilter.addEventListener('change', filterAndSort);
+                sortSelect.addEventListener('change', filterAndSort);
+
+                // View toggle
+                document.querySelectorAll('.view-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        currentView = this.getAttribute('data-view');
+                        displayProjects();
+                    });
+                });
+
+                // Back to top button
+                const backToTop = document.getElementById('backToTop');
+                let ticking = false;
+
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(() => {
+                            if (window.pageYOffset > 500) {
+                                backToTop.classList.add('visible');
+                            } else {
+                                backToTop.classList.remove('visible');
+                            }
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                });
+
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === '/' && e.target.tagName !== 'INPUT') {
+                        e.preventDefault();
+                        searchInput.focus();
+                    }
+                    if (e.key === 'Escape' && document.activeElement === searchInput) {
+                        searchInput.blur();
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
